@@ -147,7 +147,7 @@ def main():
             
     uploaded_file = st.file_uploader("Upload a text file", type="txt")
 
-    if st.session_state.api_key:        
+    if openai.api_key:        
         if uploaded_file:
             st.write('File Seccessfully upload')
                 
