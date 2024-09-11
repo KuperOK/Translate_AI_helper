@@ -1,1 +1,1 @@
-# Translate AI helper
+# Special Translate AI helper

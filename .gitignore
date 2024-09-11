@@ -6,6 +6,8 @@ __pycache__/
 # C extensions
 *.so
 
+trans_helper_streamlitapp.py
+
 .vscode
 # Distribution / packaging
 .Python

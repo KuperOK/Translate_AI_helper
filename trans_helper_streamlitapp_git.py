@@ -41,10 +41,8 @@ def process_text_file(file, num_parts):
         - Each part is returned as a single string within a list.
     """
 
-    # texts_list = file.readlines()
     text = file.read().decode("utf-8")        
     texts_list = text.splitlines()
-    # print(texts_list)
     avg_length = len(texts_list) // num_parts
     remainder = len(texts_list) % num_parts    
     result = []
@@ -54,7 +52,7 @@ def process_text_file(file, num_parts):
         result.append(texts_list[start:end])
         start = end
     splited_file_to_list_of_strings = ['\n'.join(part) for part in result]    
-    # print(splited_file_to_list_of_strings, len(splited_file_to_list_of_strings))
+
     return splited_file_to_list_of_strings
     
 def get_gpt_response(chat, split_texts):
@@ -140,26 +138,7 @@ def main():
         )
     num_parts = st.slider('Num parts to split file', min_value=1, max_value=10, value=1, step=1)
     
-    # Введення API ключа
-    # st.session_state.api_key = st.text_input("Enter your OpenAI API key:", type="password")
-    # api_key = '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'
-    # openai.api_key = api_key
-    # os.environ['OPENAI_API_KEY'] = api_key
-    
-    # if api_key and st.session_state.api_key != api_key:
-    #         st.session_state.api_key = api_key
-    #     # # Перевірка API ключа
-    #         # with st.spinner('Checking API key...'):
-    #         #     if check_openai_api_key(api_key):
-    #         #         st.success("API key is valid.")
-    #         #         openai.api_key = api_key
-    #         #     else:
-    #         #         st.error("Invalid API key. Please try again.")
-    #         #         st.session_state.api_key = ""  # Clear invalid key
-    #         #         return  # Exit early if the API key is invalid        
-    # else:
-    #     st.session_state.api_key = st.secrets['OPENAI_API_KEY']        
-    st.session_state.api_key = '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'#st.secrets['OPENAI_API_KEY']
+    st.session_state.api_key = st.secrets['OPENAI_API_KEY']
     os.environ['OPENAI_API_KEY'] = st.session_state.api_key
     openai.api_key = os.getenv('OPENAI_API_KEY')
     
@@ -192,11 +171,6 @@ def main():
                             file_name=filename,
                             mime="text/plain"
                         )
-
-        # else:
-        #     st.error("Invalid API key. Please try again.")
-        #     st.session_state.api_key = ""
-        #     return
 
 if __name__ == "__main__":
     main()
