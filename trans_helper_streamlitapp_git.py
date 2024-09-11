@@ -138,8 +138,8 @@ def main():
         )
     num_parts = st.slider('Num parts to split file', min_value=1, max_value=10, value=1, step=1)
     
-    st.session_state.api_key = st.secrets['OPENAI_API_KEY']
-    os.environ['OPENAI_API_KEY'] = st.session_state.api_key
+     
+    os.environ['OPENAI_API_KEY'] = st.secrets['OPENAI_API_KEY']
     openai.api_key = os.getenv('OPENAI_API_KEY')
     
     if 'translated_text' not in st.session_state:
