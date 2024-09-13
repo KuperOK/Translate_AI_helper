@@ -137,7 +137,7 @@ def main():
                 "Select LLM",
                 ("gpt-4o-mini-2024-07-18", "chatgpt-4o-latest")
         )
-    num_parts = st.slider('Num parts to split file', min_value=1, max_value=10, value=1, step=1)
+    num_parts = st.slider('Num parts to split file', min_value=1, max_value=10, value=6, step=1)
     
      
     os.environ['OPENAI_API_KEY'] = st.secrets['OPENAI_API_KEY']
