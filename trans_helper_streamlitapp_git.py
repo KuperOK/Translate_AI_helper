@@ -113,7 +113,7 @@ if in text line you see (it) than you must translate to Italian.
 You must translate each line of text which follows after parenthesis. 
 For example, for such line: ```view.elements.choice_of_payment_type.payment.type.cost.0=(fr)(Versandkosten``` you fist part of text line leave as is 
 ```view.elements.choice_of_payment_type.payment.type.cost.0=(fr)``` 
-and translate second part ```(Versandkosten```  which follows after ```(fr)```  . \ 
+and translate second part ```(Versandkosten```  which follows after ```(fr)```  to French or follows after ```(it)``` to Italian. \ 
 If in text line you see (it) than you must translate to Italian 
 If in second part in some word is special symblols such as `&` or `(` or others or in second part is html-tag or hyperlink 
 you dont translate that part of text and leave it as is. \
@@ -160,6 +160,7 @@ def main():
             if st.session_state.translated_text is None:
                 with st.spinner(text="AI in progress ..."):
                     st.session_state.translated_text = get_gpt_response(chat, processed_text)
+
           
                 buffer = io.BytesIO()
                 buffer.write(st.session_state.translated_text.encode("utf-8"))
